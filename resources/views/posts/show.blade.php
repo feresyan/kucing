@@ -12,15 +12,19 @@
 
   <div class="col-md-4">
     <div class="well">
-
       <dl class="dl-horizontal">
-        <dt>Create at :</dt>
-        <dd>{{ $post->created_at->format('j M, Y H:i') }}</dd>
+        <label>Url :</label>
+        <p><a href="{{ url($post->slug) }}">{{ url($post->slug) }}</a></p>
       </dl>
 
       <dl class="dl-horizontal">
-        <dt>last updated :</dt>
-        <dd>{{ $post->updated_at->format('j M, Y H:i') }}</dd>
+        <label>Create at :</label>
+        <p>{{ $post->created_at->format('j M, Y H:i') }}</p>
+      </dl>
+
+      <dl class="dl-horizontal">
+        <label>last updated :</label>
+        <p>{{ $post->updated_at->format('j M, Y H:i') }}</p>
       </dl>
 
       <hr>

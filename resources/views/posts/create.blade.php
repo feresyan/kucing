@@ -22,6 +22,11 @@
             </div>
 
             <div class="form-group">
+              <label>Slug:</label>
+              <input type="text" name="slug" class="form-control" required minlength="5" maxlength="100">
+            </div>
+
+            <div class="form-group">
               <label>Post Body:</label>
               <textarea id="body" name="body" rows="10" class="form-control" required minlength="20"></textarea>
             </div>

@@ -42,6 +42,12 @@
         </tbody>
 
       </table>
+
+      <div class="text-center">
+        {!! $posts->links(); !!} <!--  https://laravel.com/docs/5.5/pagination#displaying-pagination-results -->
+      </div>
+
     </div>
-  </div>
+  </div> <!-- END OF ROW -->
+
 @endsection
