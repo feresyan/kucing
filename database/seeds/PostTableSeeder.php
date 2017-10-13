@@ -13,11 +13,11 @@ class PostTableSeeder extends Seeder
     public function run()
     {
       $faker = Faker::create();
-      for ($i=0; $i < 1 ; $i++) {
+      for ($i=0; $i < 5 ; $i++) {
         DB::table('Posts')->insert([
           'title' =>$faker->sentence,
-          'body' => $faker->text($maxNbChars = 1000) ,
-          'slug' =>$faker->sentence,
+          'body' => $faker->realText($maxNbChars = 1000) ,
+          'slug' =>$faker->word,
           'updated_at' => \Carbon\Carbon::now(),
           'created_at' => \Carbon\Carbon::now(),
         ]);

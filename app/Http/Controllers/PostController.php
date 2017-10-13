@@ -89,13 +89,20 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-      $this->validate($request, array(
-          'title' => 'required|max:100', //https://laravel.com/docs/5.5/validation
-          'body' => 'required|min:20',
-          'slug' => 'required|alpha_dash|min:5|max:100|unique:posts,slug',
-      ));
-
       $post = Post::find($id);
+      if ($request->input('slug') == $post->slug) {
+        $this->validate($request, array(
+            'title' => 'required|max:100', //https://laravel.com/docs/5.5/validation
+            'body' => 'required|min:20',
+        ));
+      } else {
+        $this->validate($request, array(
+            'title' => 'required|max:100', //https://laravel.com/docs/5.5/validation
+            'body' => 'required|min:20',
+            'slug' => 'required|alpha_dash|min:5|max:100|unique:posts,slug',
+        ));
+      }
+      //$post = Post::find($id);
       $post->title = $request->input('title');
       $post->body = $request->input('body');
       $post->slug = $request->input('slug');
